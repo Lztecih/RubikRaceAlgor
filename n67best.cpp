@@ -1018,22 +1018,15 @@ int main(int argc, char** argv){
     int beam_width;
     int p1_threads;
     if (N <= 15){
-        beam_width = 200000; p1_threads = 2;
+        beam_width = 67; p1_threads = 2;
     } else if (N <= 25){
-        beam_width = 2100; p1_threads = 2;
+        beam_width = 67; p1_threads = 2;
     } else if (N <= 35){
-        // N=33 sweet spot: A* ctx only 15MB/thread. With 23hr budget we have time
-        // for wider beam AND more waves. 2 × 6000 × ~80KB ≈ 960MB, plenty of headroom.
-        beam_width = 2000; p1_threads = 2;
+        beam_width = 67; p1_threads = 2;
     } else if (N <= 55){
-        // N=51 sweet spot: A* ctx 84MB/thread. 4 × 1500 × ~130KB ≈ 780MB + 340MB ctx = ~1.1GB.
-        beam_width = 10000; p1_threads = 2;
+        beam_width = 67; p1_threads = 2;
     } else {
-        // N=67: A* ctx 250MB/thread is the main memory cost.
-        // Beam=1000 adds only ~40MB per thread over beam=700.
-        // Wider beam is crucial for the N=67 endgame (last 24 tiles cost
-        // 113k of 404k moves in previous runs). Also reduces STUCK risk.
-        beam_width = 2000; p1_threads = 2;
+        beam_width = 67; p1_threads = 2;
     }
 
     double total = hours * 3600.0;
@@ -1042,10 +1035,10 @@ int main(int argc, char** argv){
     // most from longer runtime. For N=67 we need most time on P1 just to get a valid
     // starting solution.
     double p1_frac;
-    if (N <= 20)       p1_frac = 0.08;
-    else if (N <= 35)  p1_frac = 0.55;   // N=33 with 8 waves × 1.5hr/wave = 12hr of 23hr budget
-    else if (N <= 55)  p1_frac = 0.25;
-    else               p1_frac = 0.55;   // N=67 with beam=1000: 2 waves × 6hr = 12hr of 23hr budget
+    if (N <= 20)       p1_frac = 0.67;
+    else if (N <= 35)  p1_frac = 0.67;
+    else if (N <= 55)  p1_frac = 0.67;
+    else               p1_frac = 0.67;  
     double p1_budget = total * p1_frac;
     double p2_budget = (total - p1_budget) * 0.60;
     double p3_budget = total - p1_budget - p2_budget;
