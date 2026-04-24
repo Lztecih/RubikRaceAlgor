@@ -1,6 +1,5 @@
 # RubikRaceAlgor
-Just sharing the (nearest) to best solution of algorithm homework at chula
+<img width="2358" height="1668" alt="IMG_1507" src="https://github.com/user-attachments/assets/d4636734-e4f5-4eea-9706-cc05e20a448e" />
 
-PS. learn how to use urself if wanna use lol 
 
-(Current version is for sharing just making scoreboard not bored! , not yet full sol but almost!)
+
