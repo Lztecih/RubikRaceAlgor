@@ -67,7 +67,6 @@ static int init_br, init_bc;
 
 static auto t_start = steady_clock::now();
 static double elapsed(){ return duration<double>(steady_clock::now() - t_start).count(); }
-
 static string g_out_prefix;
 
 // ============================================================
@@ -1018,11 +1017,11 @@ int main(int argc, char** argv){
     int beam_width;
     int p1_threads;
     if (N <= 15){
-        beam_width = 67; p1_threads = 2;
+        beam_width = 6767; p1_threads = 2;
     } else if (N <= 25){
-        beam_width = 67; p1_threads = 2;
+        beam_width = 6767; p1_threads = 2;
     } else if (N <= 35){
-        beam_width = 67; p1_threads = 2;
+        beam_width = 6767; p1_threads = 2;
     } else if (N <= 55){
         beam_width = 67; p1_threads = 2;
     } else {
